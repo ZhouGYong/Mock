@@ -84,6 +84,12 @@ module.exports = {
         max = max === undefined ? new Date() : max
         return new Date(Math.random() * (max.getTime() - min.getTime()))
     },
+    dateRange: function(min, max, format) {
+        min = min === undefined ? new Date(0) : min;
+        max = max === undefined ? new Date() : max;
+        format = format || 'yyyy-MM-dd';
+        return this._formatDate(new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime())), format);
+    },
     // 返回一个随机的日期字符串。
     date: function(format) {
         format = format || 'yyyy-MM-dd'
